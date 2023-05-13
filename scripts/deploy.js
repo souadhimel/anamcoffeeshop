@@ -8,7 +8,7 @@ async function main() {
   await coffeeShop.deployed(); //deploying smart contract
 
   console.log(
-    `"deployed contract address:",  ${CoffeeShop.address}`
+    `"deployed contract address:",  ${coffeeShop.address}`
   );
 }
 
