@@ -4,10 +4,11 @@ import {ethers} from 'ethers';
 import './App.css';
 import Buy from './components/Buy';
 import Memos from './components/Memos';
+import { Bounce, Flip, Rotate } from 'react-awesome-reveal';
 
 function App() {
 const [state, setState] = useState({provider:null,signer:null,contract: null})
-const [account, setAccount] = useState('Not Connected');
+const [account, setAccount] = useState('Please connect your account!');
 
   useEffect(() => {
    const template= async()=>{
@@ -43,10 +44,17 @@ const [account, setAccount] = useState('Not Connected');
   return (
     <>
       <div className='App'>
-      <h1>Coffee Shop</h1>
-      connected Account: {account}
-      <Buy state={state}>Hi buy</Buy>
-      <Memos>Hi memo</Memos>
+      <div >
+    <img src="/coffee.jpg" className="img-fluid" alt=".." width="100%" />
+    <p style={{ marginTop: "40px", marginLeft: "5px" }}>
+      <h4>Connected Account - <Flip><small style={{color:'red', fontSize:'20px'}}>{account}</small></Flip></h4>
+    </p>
+     <Rotate><Bounce up cascade><h1>Coffee Shop</h1></Bounce></Rotate>
+   
+      <Buy state={state} />
+      <Memos state={state} />
+   
+  </div>
       </div>
     </>
   )
